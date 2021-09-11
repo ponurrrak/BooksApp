@@ -99,39 +99,6 @@
         target.classList.remove(classNames.favoriteBookCover);
       }
     }
-
-    //What is better: version above or below?
-
-    /*filterBooks(){
-      const thisBooksList = this;
-      const blurredBookCovers = thisBooksList.elements.booksListContainer.querySelectorAll('.' + classNames.bookCoverBlurred);
-      for(const cover of blurredBookCovers){
-        cover.classList.remove(classNames.bookCoverBlurred);
-      }
-      const inputsChecked = [];
-      for(const input of thisBooksList.elements.filteringInputs){
-        if(input.checked){
-          inputsChecked.push(input.value);
-        }
-      }
-      if(inputsChecked.length === 0){
-        return;
-      } else {
-        for(const book of thisBooksList.data){
-          let isCoverToBeBlurred = false;
-          for(const inputName of inputsChecked){
-            if(!book.details[inputName]){
-              isCoverToBeBlurred = true;
-              break;
-            }
-          }
-          if(isCoverToBeBlurred){
-            const coverToBlur = thisBooksList.elements.booksListContainer.querySelector(`[data-id="${book.id}"]`);
-            coverToBlur.classList.add(classNames.bookCoverBlurred);
-          }
-        }
-      }
-    }*/
     filterBooks(){
       const thisBooksList = this;
       const inputsChecked = [];
@@ -150,13 +117,9 @@
         }
         const bookCover = thisBooksList.elements.booksListContainer.querySelector(`[data-id="${book.id}"]`);
         if(isCoverToBeBlurred){
-          if(!bookCover.classList.contains(classNames.bookCoverBlurred)){
-            bookCover.classList.add(classNames.bookCoverBlurred);
-          }
+          bookCover.classList.add(classNames.bookCoverBlurred);
         } else {
-          if(bookCover.classList.contains(classNames.bookCoverBlurred)){
-            bookCover.classList.remove(classNames.bookCoverBlurred);
-          }
+          bookCover.classList.remove(classNames.bookCoverBlurred);
         }
       }
     }
